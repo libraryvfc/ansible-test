@@ -4,36 +4,24 @@
   become: true
   tasks:
 
-  - name: update repository index
+  - name: install apache and php for Ubuntu 
     apt:
+      name:
+        - apache2
+        - libapache2-mod-php
+      state: latest
       update_cache: yes
     when: ansible_distribution == "Ubuntu"
 
-  - name: install apache2 package
-    apt:
-      name: apache2
-      state: latest
-    when: ansible_distribution == "Ubuntu"
-
-  - name: add php support for apache
-    apt:
-      name: libapache2-mod-php
-      state: latest
-    when: ansible_distribution == "Ubuntu"
-
-  - name: install apache24 package
+  - name: install apache and php for FreeBSD
     pkgng:
-      name: apache24
+      name:
+        - apache24
+        - mod_php81
       state: latest
     when: ansible_distribution == "FreeBSD"
 
-  - name: add php support for apache
-    pkgng:
-      name: mod_php81
-      state: latest
-    when: ansible_distribution == "FreeBSD"
-
-  - name: enable apache
+  - name: enable and start apache for FreeBSD
     service:
       name: apache24
       enabled: yes

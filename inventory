@@ -1,7 +1,11 @@
+[web_servers]
 ubuntu1
-ubuntu2
-ubuntu3
 freebsd1
-freebsd2
-freebsd3
 
+[db_servers]
+ubuntu2
+freebsd2
+
+[file_servers]
+ubuntu3
+freebsd3
