@@ -9,3 +9,6 @@ freebsd2
 [file_servers]
 ubuntu3
 freebsd3
+
+[workstations]
+ansibleworkstation
